@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Empleado</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; }
+        label { display: block; margin: 10px 0 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background-color: #007BFF; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Editar Empleado</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Nombre:</label>
+        <input type="text" name="nombre_empleado" value="{{ empleado.nombre_empleado }}" required>
+
+        <label>Apellido:</label>
+        <input type="text" name="apellido_empleado" value="{{ empleado.apellido_empleado }}"  required>
+
+        <label>RFC:</label>
+        <input type="text" name="rfc_empleado" value="{{ empleado.rfc_empleado }}"  required>
+
+        <label>Puesto:</label>
+        <input type="text" name="puesto_empleado" value="{{ empleado.puesto_empleado }}"  required>
+
+        <label for="contratacion_empleado">Fecha de Contratación:</label>
+        <input type="date" id="contratacion_empleado" name="contratacion_empleado" value="{{ empleado.contratacion_empleado }}"  required>
+
+        <button type="submit">Actualizar</button>
+    </form>
+    <a href="/">Volver al listado</a>
+</body>
+</html>
